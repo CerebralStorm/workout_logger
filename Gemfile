@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 ruby "2.2.1"
-gem 'rename'
+
 #
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
 gem "rails", "~>4.2"
@@ -47,6 +47,7 @@ end
 group :development, :test do
   # Call "debugger" anywhere in the code to stop execution and get a debugger console
   gem "byebug"
+  gem 'pry'
 
   # Access an IRB console on exceptions page and /console in development
   gem "web-console", "~> 2.0.0.beta2"

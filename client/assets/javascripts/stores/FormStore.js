@@ -1,48 +1,48 @@
 import alt from '../FluxAlt';
 import FormActions from '../actions/FormActions';
-import CommentActions from '../actions/CommentActions';
+import ExerciseActions from '../actions/ExerciseActions';
 
-const emptyComment = {author: '', text: ''};
+const emptyExercise = {author: '', text: ''};
 
 class FormStore {
   constructor() {
     this.mode = 0;
-    this.comment = emptyComment;
+    this.exercise = emptyExercise;
     this.ajaxSending = false;
     this.bindListeners({
-      handleUpdateComment: FormActions.UPDATE_COMMENT,
-      handleSubmitComment: FormActions.SUBMIT_COMMENT,
-      handleFetchComments: CommentActions.FETCH_COMMENTS,
-      handleUpdateComments: CommentActions.UPDATE_COMMENTS,
-      handleUpdateCommentsError: CommentActions.UPDATE_COMMENTS_ERROR,
-      handleAddComment: CommentActions.ADD_COMMENT
+      handleUpdateExercise: FormActions.UPDATE_EXERCISE,
+      handleSubmitExercise: FormActions.SUBMIT_EXERCISE,
+      handleFetchExercises: ExerciseActions.FETCH_EXERCISES,
+      handleUpdateExercises: ExerciseActions.UPDATE_EXERCISES,
+      handleUpdateExercisesError: ExerciseActions.UPDATE_EXERCISES_ERROR,
+      handleAddExercise: ExerciseActions.ADD_EXERCISE
     });
   }
 
-  handleUpdateComment(comment) {
-    this.comment = comment;
+  handleUpdateExercise(exercise) {
+    this.exercise = exercise;
   }
 
-  handleSubmitComment() {
+  handleSubmitExercise() {
     this.ajaxSending = true;
-    this.comment = emptyComment;
+    this.exercise = emptyExercise;
   }
 
-  handleFetchComments(displaySpinner) {
+  handleFetchExercises(displaySpinner) {
     if (displaySpinner) {
       this.ajaxSending = true;
     }
   }
 
-  handleUpdateComments() {
+  handleUpdateExercises() {
     this.ajaxSending = false;
   }
 
-  handleUpdateCommentsError() {
+  handleUpdateExercisesError() {
     this.ajaxSending = false;
   }
 
-  handleAddComment() {
+  handleAddExercise() {
     this.ajaxSending = false;
   }
 }

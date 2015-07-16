@@ -1,34 +1,34 @@
 import alt from '../FluxAlt';
-import CommentActions from '../actions/CommentActions';
-import CommentsManager from '../utils/CommentsManager';
+import ExerciseActions from '../actions/ExerciseActions';
+import ExercisesManager from '../utils/ExercisesManager';
 
 class FormActions {
   /**
-   * Text is being entered in the comment form, update the state.
+   * Text is being entered in the exercise form, update the state.
    *
-   * @param {String} comment - Comment to update from form input.
+   * @param {String} exercise - Exercise to update from form input.
    * @return {void}
    */
-  updateComment(comment) {
-    this.dispatch(comment);
+  updateExercise(exercise) {
+    this.dispatch(exercise);
   }
 
   /**
-   * Submit a new comment to the server.
+   * Submit a new exercise to the server.
    *
-   * @param {String} url - Url used for remote request to sumbmit the comment.
-   * @param {String} comment - New comment from UI to send to the server.
+   * @param {String} url - Url used for remote request to sumbmit the exercise.
+   * @param {String} exercise - New exercise from UI to send to the server.
    * @return {void}
    */
-  submitComment(url, comment) {
+  submitExercise(url, exercise) {
     this.dispatch();
-    CommentsManager.submitComment(url, comment)
-      .then((returnedComment) => {
-        CommentActions.addComment(returnedComment);
+    ExercisesManager.submitExercise(url, exercise)
+      .then((returnedExercise) => {
+        ExerciseActions.addExercise(returnedExercise);
       },
 
       (errorMessage) => {
-        CommentActions.updateCommentsError(errorMessage);
+        ExerciseActions.updateExercisesError(errorMessage);
       });
   }
 }

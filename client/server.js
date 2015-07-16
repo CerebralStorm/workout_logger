@@ -5,8 +5,7 @@ var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.hot.config');
 var sleep = require('sleep');
 
-var comments = [{author: 'Pete Hunt', text: 'Hey there!'},
-  {author: 'Justin Gordon', text: 'Aloha from @railsonmaui'}];
+var exercises = [{value: 1}];
 
 var server = new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
@@ -18,19 +17,19 @@ var server = new WebpackDevServer(webpack(config), {
 server.app.use(bodyParser.json(null));
 server.app.use(bodyParser.urlencoded({extended: true}));
 
-server.app.get('/comments.json', function(req, res) {
+server.app.get('/exercises.json', function(req, res) {
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify(comments));
+  res.send(JSON.stringify(exercises));
 });
 
-server.app.post('/comments.json', function(req, res) {
-  console.log('Processing comment: %j', req.body.comment);
+server.app.post('/exercises.json', function(req, res) {
+  console.log('Processing exercise: %j', req.body.exercise);
   console.log('(shhhh...napping 1 seconds)');
   sleep.sleep(1);
   console.log('Just got done with nap!');
-  comments.push(req.body.comment);
+  exercises.push(req.body.exercise);
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify(req.body.comment));
+  res.send(JSON.stringify(req.body.exercise));
 });
 
 server.listen(3000, 'localhost', function(err) {
