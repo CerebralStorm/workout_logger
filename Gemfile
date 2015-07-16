@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 ruby "2.2.1"
-
+gem 'rename'
 #
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
 gem "rails", "~>4.2"
@@ -65,7 +65,7 @@ group :development, :test do
 
   gem "ruby-lint", require: false
 
-  gem "scss-lint", require: false
+  gem "scss_lint", require: false
 
   gem "brakeman", require: false
 
@@ -77,8 +77,8 @@ end
 group :test  do
   gem "rspec-rails"
   gem "capybara"
-  gem "capybara-screenshot"
-  gem "capybara-webkit"
+  # gem "capybara-screenshot"
+  # gem "capybara-webkit"
   gem "database_cleaner"
   gem "launchy"
 end

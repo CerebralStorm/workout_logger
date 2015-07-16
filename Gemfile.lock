@@ -71,12 +71,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-screenshot (1.0.9)
-      capybara (>= 1.0, < 3)
-      launchy
-    capybara-webkit (1.5.1)
-      capybara (>= 2.3.0, < 2.5.0)
-      json
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -166,6 +160,8 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    rename (1.0.2)
+      rails (>= 3.0.0)
     rspec-core (3.2.3)
       rspec-support (~> 3.2.0)
     rspec-expectations (3.2.1)
@@ -205,7 +201,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
-    scss-lint (0.38.0)
+    scss_lint (0.40.1)
       rainbow (~> 2.0)
       sass (~> 3.4.1)
     sdoc (0.4.1)
@@ -256,8 +252,6 @@ DEPENDENCIES
   bundler-audit
   byebug
   capybara
-  capybara-screenshot
-  capybara-webkit
   coffee-rails
   database_cleaner
   factory_girl_rails
@@ -270,11 +264,12 @@ DEPENDENCIES
   rails-html-sanitizer
   rails_12factor
   rainbow
+  rename
   rspec-rails
   rubocop
   ruby-lint
   sass-rails
-  scss-lint
+  scss_lint
   sdoc
   spring
   spring-commands-rspec
