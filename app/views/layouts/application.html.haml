@@ -1,0 +1,46 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %title Workout Logger
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-default.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#main-navbar", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "#"} Workout Logger
+        #main-navbar.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li.active
+              %a{:href => "#"}
+                Chest and Back
+              %a{:href => "#"}
+                Plyometrics
+              %a{:href => "#"}
+                Shoulders and Arms
+              %a{:href => "#"}
+                Yoga
+              %a{:href => "#"}
+                Legs and Back
+              %a{:href => "#"}
+                Kenpo
+          -if user_signed_in?
+            %ul.nav.navbar-nav.navbar-right
+              %li
+                = link_to "Sign out", destroy_user_session_path, method: :delete
+
+    = link_to 'Back', :back, class: 'btn btn-default btn-block'
+    .clearfix
+    .container
+      = render partial: "layouts/flash", flash: flash
+      = yield

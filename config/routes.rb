@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root "pages#index"
-
-  resources :comments
+  devise_for :users
   resources :exercises
 end
