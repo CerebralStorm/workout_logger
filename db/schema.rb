@@ -11,20 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150717023109) do
+ActiveRecord::Schema.define(version: 20150717135147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "exercises", force: :cascade do |t|
-    t.integer  "routine_id"
     t.integer  "routine_exercise_id"
     t.string   "value"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
 
-  add_index "exercises", ["routine_id"], name: "index_exercises_on_routine_id", using: :btree
+  add_index "exercises", ["routine_exercise_id"], name: "index_exercises_on_routine_exercise_id", using: :btree
+
+  create_table "routine_exercises", force: :cascade do |t|
+    t.integer  "routine_id"
+    t.integer  "position"
+    t.boolean  "rest"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "routine_exercises", ["routine_id"], name: "index_routine_exercises_on_routine_id", using: :btree
 
   create_table "routines", force: :cascade do |t|
     t.string   "name"
